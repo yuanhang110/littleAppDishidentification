@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dish.demo.dao.DishDao">
+	<select id="queryDish" resultType="com.dish.demo.entity.Dish">
+		SELECT dish_id, dish_name,
+		calorie, probability
+		FROM dish
+	</select>
+	<select id="queryDishById" resultType="com.dish.demo.entity.Dish">
+		SELECT area_id, dish_name,
+		priority, create_time, last_edit_time
+		FROM dish
+		WHERE
+		area_id=#{areaId}
+	</select>
+	<insert id="insertDish" useGeneratedKeys="true" keyProperty="dishId"
+			keyColumn="dish_id" parameterType="com.dish.demo.entity.Dish">
+		INSERT INTO
+		dish(dish_name,calorie,
+		probability,description)
+		VALUES
+		(#{dishName},#{calorie},
+		#{probability},#{description})
+	</insert>
+	<update id="updateDish" parameterType="com.dish.demo.entity.Dish">
+		update tb_area
+		<set>
+			<if test="areaName != null">area_name=#{areaName},</if>
+			<if test="priority != null">priority=#{priority},</if>
+			<if test="lastEditTime != null">last_edit_time=#{lastEditTime}</if>
+		</set>
+		where area_id=#{areaId}
+	</update>
+	<delete id="deleteDish">
+		DELETE FROM
+		dish
+		WHERE
+		dish_id =
+		#{dishId}
+	</delete>
+</mapper>

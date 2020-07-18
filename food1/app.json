@@ -1,0 +1,35 @@
+{
+  "pages":[
+    "pages/food/food",
+    "pages/index/index",
+    "pages/list/list",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+
+  "tabBar": {
+   "color": "#a9b7b7",
+   "selectedColor": "#11cd6e",
+   "borderStyle": "black" ,
+   "list": [{
+     "selectedIconPath": "pages/food/images/home.png",
+     "iconPath": "pages/food/images/home_unselected.png",
+     "pagePath": "pages/food/food",
+     "text": "首页"
+   }, 
+   {
+     "selectedIconPath": "pages/food/images/user.png",
+     "iconPath": "pages/food/images/user_unselected.png",
+     "pagePath": "pages/index/index",
+     "text": "我的"
+   }
+   ]
+ }
+}
